@@ -16,17 +16,17 @@ public:
 
     void deposit(double amount) {
         if (amount < 0) {
-            throw std::invalid_argument("Сумма депозита должна быть положительной.");
+            throw invalid_argument("Сумма депозита должна быть положительной.");
         }
         balance += amount;
     }
 
     void withdraw(double amount) {
         if (amount < 0) {
-            throw std::invalid_argument("Сумма для вывода должна быть положительной.");
+            throw invalid_argument("Сумма для вывода должна быть положительной.");
         }
         if (amount > balance) {
-            throw std::invalid_argument("Недостаточно средств.");
+            throw invalid_argument("Недостаточно средств.");
         }
         balance -= amount;
     }
@@ -41,7 +41,7 @@ public:
 
     void setInterestRate(double rate) {
         if (rate < 0) {
-            throw std::invalid_argument("Процентная ставка должна быть неотрицательной.");
+            throw invalid_argument("Процентная ставка должна быть неотрицательной.");
         }
         interestRate = rate;
     }
@@ -57,7 +57,7 @@ public:
             return true;
         }
         catch (const std::invalid_argument& e) {
-            std::cerr << "Не удалось выполнить передачу: " << e.what() << std::endl;
+            cerr << "Не удалось выполнить передачу: " << e.what() << endl;
             return false;
         }
     }
